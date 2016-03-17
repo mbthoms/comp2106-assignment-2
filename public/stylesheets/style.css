@@ -1,0 +1,20 @@
+body {
+  font-family: 'Lato', sans-serif;
+  padding-top: 70px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
+
+footer {
+  border-top: 15px solid #444444;
+  padding:40px 0px;
+  margin:0px;
+  color: #ffffff;
+  background-color: #2B2922;
+}
+
+footer a {
+  color: #ffffff;
+}
