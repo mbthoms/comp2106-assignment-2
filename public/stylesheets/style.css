@@ -1,6 +1,8 @@
-body {
+html, body{
   font-family: 'Lato', sans-serif;
-  padding-top: 70px;
+  height:100%;
+  margin:0;
+  padding:0;
 }
 
 h1, h2, h3, h4 {
@@ -9,7 +11,7 @@ h1, h2, h3, h4 {
 
 footer {
   border-top: 15px solid #444444;
-  padding:40px 0px;
+  padding:20px 0px;
   margin:0px;
   color: #ffffff;
   background-color: #2B2922;
@@ -17,4 +19,49 @@ footer {
 
 footer a {
   color: #ffffff;
+}
+
+
+/*Login
+===============================================================================================*/
+
+
+.main-background {
+  background-image: url(/images/city.jpg);
+  height: 100%;
+
+  background-attachment: fixed;
+  background-position: center;
+
+}
+
+.first-container {
+  padding-top: 70px;
+}
+
+.container-fluid {
+  height:100%;
+  display:table;
+  width: 100%;
+  padding: 0;
+}
+
+.row-fluid {
+  height: 100%;
+  display:table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.centering {
+  float:none;
+  margin:0 auto;
+}
+
+.login-form {
+  width: 400px;
+}
+
+.background-height {
+  height: 100%;
 }

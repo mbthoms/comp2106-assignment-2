@@ -1,0 +1,38 @@
+<%- include ../partials/head.ejs %>
+<%- include ../partials/header.ejs %>
+
+<main class="main-background">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class=" centering text-center">
+                <section class="background-height">
+                    <form class="container login-form" method="POST" action="/login/register">
+                        <h2 class="login-form-title">Register</h2>
+                        <section class="form-group">
+                            <label for="username" class="sr-only">Username:</label>
+                            <input name="username" id="username" class="form-control" placeholder="Username" required />
+                        </section>
+
+                        <section class="form-group">
+                            <label for="password" class="sr-only">Password:</label>
+                            <input name="password" id="password" type="password" class="form-control" placeholder="Password" required />
+                        </section>
+
+                        <section class="form-group">
+                            <label for="confirm" class="sr-only">Confirm Password:</label>
+                            <input name="confirm" id="confirm" type="password" class="form-control" placeholder="Confirm Password" required />
+                        </section>
+
+                        <section>
+                            <button class="btn btn-primary btn-block">Register</button>
+                        </section>
+                        <hr />
+                        Already have an account? <a href="/login/login" title="Login">Login</a>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include ../partials/footer.ejs %>

@@ -4,9 +4,21 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//Using Mongoose Module
+var mongoose = require('mongoose');
+
+//Modules that work with the login/Register.
+var passport = require('passport');
+var session = require('express-session');
+var flash = require('connect-flash');
+
+
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var business = require('./routes/businesses')
+var login = require('./routes/login');
 
 var app = express();
 
@@ -24,6 +36,36 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/businesses', business);
+app.use('/login', login);
+
+
+
+
+//Connecting to the database using Mongoose.
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'DB Error: '));
+
+db.once('open', function(callback) {
+  //If the database is connected display message in console.
+  console.log('Connected to mongodb');
+});
+
+
+
+
+
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// read db connection string from our config file
+var configDb = require('./config/db.js');
+mongoose.connect(configDb.url);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
