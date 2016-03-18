@@ -5,39 +5,35 @@ var express = require('express');
 var router = express.Router();
 
 //Making sure the modules are included into the page.
-// add auth package refs
 var passport = require('passport');
 var mongoose = require('mongoose');
 var Account = require('../models/account');
 var configDb = require('../config/db.js');
 
-// GET login - show login form
+//Routing the Login Page.
 router.get('/login', function(req, res, next) {
-
-    //Showing the login page.
+    //Rendering the Login Page.
     res.render('login/login', {
         title: 'Login',
         user: req.user
     });
 });
 
-// POST login - validate user
-
+//Validating the User.
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login/login',
     failureMessage: 'Invalid Login'
 }));
 
-// GET register - show registration form
+//Routing the Register Page.
 router.get('/register', function(req, res, next) {
     res.render('login/register', {
         title: 'Register'
     });
 });
 
-
-// POST register - save new user
+//Saving the User, Using the register page.
 router.post('/register', function(req, res, next) {
     Account.register(new Account({ username: req.body.username }), req.body.password, function(err, account) {
         if (err) {
@@ -48,6 +44,5 @@ router.post('/register', function(req, res, next) {
         }
     });
 });
-
-// make this public
+//Making the page public.
 module.exports = router, passport;
