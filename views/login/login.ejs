@@ -8,6 +8,9 @@
                 <section class="background-height">
                     <form class="container login-form" method="POST" action="/login/login">
                         <h2 class="login-form-title">Login</h2>
+                        <% if (messages.length > 0) { %>
+                        <div class="alert alert-danger"><%= messages %></div>
+                        <% } %>
                         <section class="form-group">
                             <label for="username" class="sr-only">Username:</label>
                             <input class="form-control login-form-input" type="text" title="username" placeholder="Username">

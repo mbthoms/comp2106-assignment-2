@@ -10,12 +10,31 @@ var mongoose = require('mongoose');
 var Account = require('../models/account');
 var configDb = require('../config/db.js');
 
-//Routing the Login Page.
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    Account.findById(id, function(err, user) {
+        done(err, user);
+    });
+});
+
+
+// GET login - show login form
 router.get('/login', function(req, res, next) {
-    //Rendering the Login Page.
+    // store the session messages in a local variable
+    var messages = req.session.messages || [];
+
+    // clear the session messages
+    req.session.messages = [];
+
+    // show the login page and pass in any messages we may have
     res.render('login/login', {
         title: 'Login',
-        user: req.user
+        user: req.user,
+        messages: messages
     });
 });
 
@@ -24,7 +43,10 @@ router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login/login',
     failureMessage: 'Invalid Login'
+    //failureFlash: true
 }));
+
+
 
 //Routing the Register Page.
 router.get('/register', function(req, res, next) {
@@ -40,9 +62,18 @@ router.post('/register', function(req, res, next) {
             return res.render('login/register', { title: 'Register' });
         }
         else {
+            /*req.login(account, function(err) {
+             res.redirect('/articles');
+             });*/
             res.redirect('/login/login');
         }
     });
 });
+
+
+
+
+
+
 //Making the page public.
 module.exports = router, passport;
