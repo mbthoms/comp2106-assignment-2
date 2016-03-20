@@ -1,7 +1,6 @@
 /**
  * Created by matthewthoms on 2016-03-17.
  */
-
 //Linking to Mongoose.
 var mongoose = require('mongoose');
 
@@ -31,5 +30,5 @@ var businessSchema = new mongoose.Schema({
     }
 });
 
-//Making it Public
+//Making it Public.
 module.exports = mongoose.model('Business', businessSchema);

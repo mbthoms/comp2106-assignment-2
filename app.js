@@ -21,8 +21,7 @@ var business = require('./routes/businesses')
 var login = require('./routes/login');
 
 var app = express();
-
-// view engine setup
+//The views engine setup.
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -31,11 +30,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// enable flash for showing messages
+// Allowing flash to show the messages that are saved in the session.
 app.use(flash());
 
-// passport config section
+//Configuring the Passport Module.
 app.use(session({
     secret: 'assignment-2 login',
     resave: true,
@@ -61,7 +59,7 @@ passport.use(new LocalStrategy(
     }
 ));
 
-// methods for accessing the session data
+//Accessing the Session information.
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 

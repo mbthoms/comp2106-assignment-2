@@ -8,7 +8,6 @@ var router = express.Router();
 var passport = require('passport');
 var mongoose = require('mongoose');
 var Account = require('../models/account');
-var configDb = require('../config/db.js');
 
 
 passport.serializeUser(function(user, done) {
@@ -21,18 +20,17 @@ passport.deserializeUser(function(id, done) {
     });
 });
 
-
-// GET login - show login form
+//GET Login Form - Rending the page/Routing the page.
 router.get('/login', function(req, res, next) {
-    // store the session messages in a local variable
+    //Storing the messages into the current session with a variable.
     var messages = req.session.messages || [];
 
-    // clear the session messages
+    //Deleting the session message when the page is reloaded.
     req.session.messages = [];
 
-    // show the login page and pass in any messages we may have
+    //Showing the Login Page. Push the messages if any to the page.
     res.render('login/login', {
-        title: 'Login',
+        title: 'Login - Business Directory',
         user: req.user,
         messages: messages
     });
@@ -40,10 +38,9 @@ router.get('/login', function(req, res, next) {
 
 //Validating the User.
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/businesses',
     failureRedirect: '/login/login',
-    failureMessage: 'Invalid Login'
-    //failureFlash: true
+    failureMessage: 'Invalid Login, Please try again.'
 }));
 
 
@@ -51,7 +48,7 @@ router.post('/login', passport.authenticate('local', {
 //Routing the Register Page.
 router.get('/register', function(req, res, next) {
     res.render('login/register', {
-        title: 'Register'
+        title: 'Register - Business Directory'
     });
 });
 
@@ -59,21 +56,15 @@ router.get('/register', function(req, res, next) {
 router.post('/register', function(req, res, next) {
     Account.register(new Account({ username: req.body.username }), req.body.password, function(err, account) {
         if (err) {
-            return res.render('login/register', { title: 'Register' });
+            //Redirect the User to the login when data is saved into database.
+            return res.render('login/register', { title: 'Register - Business Directory' });
         }
         else {
-            /*req.login(account, function(err) {
-             res.redirect('/articles');
-             });*/
+            //Redirect the user to the login page.
             res.redirect('/login/login');
         }
     });
 });
-
-
-
-
-
 
 //Making the page public.
 module.exports = router, passport;

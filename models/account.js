@@ -1,17 +1,14 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
-
-// create the account schema
+//Account Schema
 var Account = new schema({
     username: String,
-    password: String /*,
-    name: String,
-    someID: String */
+    password: String
 });
 
 Account.plugin(passportLocalMongoose);
 
-// make public to the rest of the app
+//Making it public.
 module.exports = mongoose.model('Account', Account);
 

@@ -1,18 +1,18 @@
 <%- include ../partials/head.ejs %>
 <%- include ../partials/header.ejs %>
 
-<main class="container">
-    <h1>Buinesses</h1>
+<main class="container first-container">
+    <h1>Businesses</h1>
 
-    <a href="/Businesses/create" title="Add a Business">Add a new Business</a>
-
+    <a class="btn btn-primary" href="/Businesses/create" title="Add a Business">Add a new Business</a>
+    <hr>
     <ul class="list-group">
         <% for (var i = 0; i < businesses.length; i++) { %>
-            <li class="list-group-item">
-                <!-- link to /businesses/:id -->
-                <a href="/businesses/<%= businesses[i]._id%>" title="Read More...">
-                    <%= businesses[i].title %></a>
-            </li>
+        <li class="list-group-item">
+            <!-- link to /businesses/:id -->
+            <a href="/businesses/<%= businesses[i]._id%>" title="Read More">
+                <%= businesses[i].businessName %></a>
+        </li>
         <% } %>
     </ul>
 </main>

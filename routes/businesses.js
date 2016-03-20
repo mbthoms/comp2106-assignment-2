@@ -3,36 +3,38 @@
  */
 var express = require('express');
 var router = express.Router();
-
+//Linking Mongoose, the business Model and passport.
 var mongoose = require('mongoose');
 var Business = require('../models/business');
 var passport = require('passport');
 
 //Setting up the GET handler for the Businesses page.
-router.get('/', LoggedIn, function(req, res, next) {
-    //Using the Business model to import all the data.
-    Business.find(function (err, business) {
-        //If there is an error.
+router.get('/', function(req, res, next) {
+    //Using the Business Model to display all the businesses.
+    Business.find(function (err, businesses) {
+        // if we have an error
         if (err) {
             console.log(err);
             res.end(err);
-        } else {
-            //If there is data.
-            //Showing the page and importing the data into the page.
-            res.render('business/index', {
-                title: 'Businesses List',
-                businesses: business
+        }
+        else {
+            //Render the Page with the information that is passed back.
+            res.render('businesses/index', {
+
+                title: 'Directory - Business Directory',
+                businesses: businesses
             });
         }
     });
 });
 
+
 //GET handler for the creating of a new business.
-router.get('/add', function(req, res, next) {
+router.get('/create', function(req, res, next) {
 
     if (req.isAuthenticated()) {
         res.render('businesses/create', {
-            title: 'Add a New Business'
+            title: 'Add a New Business - Business Directory'
         });
     }
     else {
@@ -67,9 +69,9 @@ router.get('/:id', LoggedIn, function(req, res, next) {
             res.end(err);
         }
         else {
-            // show the edit view
+            //Displaying the Edit Page.
             res.render('businesses/edit', {
-                title: 'Business Details',
+                title: 'Edit a Business - Business Directory',
                 business: business
             });
         }
@@ -84,8 +86,9 @@ router.post('/:id', LoggedIn, function(req, res, next) {
     //Filling the business object with the information from the database.
     var business = new Business( {
         _id: id,
-        title: req.body.title,
-        content: req.body.content
+        businessName: req.body.businessName,
+        about: req.body.about,
+
     });
 
     //Updating the database using the mongoose module and the business model.
@@ -102,7 +105,7 @@ router.post('/:id', LoggedIn, function(req, res, next) {
 
 //GET handler to delete a business with the id from the url.
 router.get('/delete/:id', LoggedIn, function(req, res, next) {
-    // Grabbing the id from the url.
+    //Getting the id from the url.
     var id = req.params.id;
     console.log('Deleting...');
 
