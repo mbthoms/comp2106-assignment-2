@@ -59,8 +59,6 @@ app.use('/businesses', business);
 app.use('/login', login);
 
 
-
-
 //Connecting to the database using Mongoose.
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'DB Error: '));
@@ -95,8 +93,7 @@ if (app.get('env') === 'development') {
     });
 }
 
-// production error handler
-// no stacktraces leaked to user
+//Error Handler.
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
@@ -104,6 +101,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;

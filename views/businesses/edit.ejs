@@ -1,24 +1,24 @@
-/*** Created by matthewthoms on 2016-03-17.*/
+<%- include ../partials/head.ejs %>
 <%- include ../partials/header.ejs %>
 
-<main class="container">
-    <h1>Business Details</h1>
+<main class="container first-container">
+    <h1>Edit the Business Entry</h1>
     <form method="post" action="<%= business._id %>">
         <fieldset class="form-group">
             <label for="businessName" class="col-sm-2">Business Name:</label>
             <input name="businessName" id="businessName" class="form-control" required value="<%= business.businessName %>" />
         </fieldset>
         <fieldset class="form-group">
-            <label for="about" class="col-sm-2">Content:</label>
+            <label for="about" class="col-sm-2">About the Business:</label>
             <textarea name="about" id="about" class="form-control" required><%= business.about %></textarea>
         </fieldset>
         <fieldset class="form-group">
-            <label for="phoneNumber" class="col-sm-2">About the Business:</label>
+            <label for="phoneNumber" class="col-sm-2">Phone Number:</label>
             <input name="phoneNumber" id="phoneNumber" class="form-control" required value="<%= business.phoneNumber %>" />
         </fieldset>
         <fieldset class="form-group">
-            <label for="address" class="col-sm-2">Business Address:</label>
-            <input name="address" id="address" class="form-control" required value="<%= business.phoneNumber %>" />
+            <label for="address" class="col-sm-2">Address:</label>
+            <input name="address" id="address" class="form-control" required value="<%= business.address %>" />
         </fieldset>
 
         <div>
@@ -26,7 +26,7 @@
         </div>
         <button class="btn btn-primary">Save</button>
 
-        <a href="/articles/delete/<%= business._id %>" title="Delete" class="confirm_delete">
+        <a href="/businesses/delete/<%= business._id %>" title="Delete" class="confirm_delete">
             <button class="btn btn-danger" type="button">Delete</button>
         </a>
     </form>

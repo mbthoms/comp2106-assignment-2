@@ -1,9 +1,8 @@
-/*** Created by matthewthoms on 2016-03-17.*/
 <%- include ../partials/head.ejs %>
 <%- include ../partials/header.ejs %>
 
 <main class="container first-container">
-    <h1>Businesses</h1>
+    <h1>Business List</h1>
 
     <a class="btn btn-primary" href="/Businesses/create" title="Add a Business">Add a new Business</a>
     <hr>
@@ -12,7 +11,22 @@
         <li class="list-group-item">
             <!-- link to /businesses/:id -->
             <a href="/businesses/<%= businesses[i]._id%>" title="Read More">
-                <%= businesses[i].businessName %></a>
+                <h3 id="business-list-item-heading"><%= businesses[i].businessName %></h3></a>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    About: <br>
+                    <%= businesses[i].about %>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    Phone Number: <br>
+                    <%= businesses[i].phoneNumber %>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    About: <br>
+                    <%= businesses[i].address %>
+                </div>
+            </div>
         </li>
         <% } %>
     </ul>

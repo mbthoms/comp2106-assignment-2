@@ -66,5 +66,11 @@ router.post('/register', function(req, res, next) {
     });
 });
 
+//GET Logout - Destroying the session.
+router.get('/logout', function(req, res, next) {
+    req.session.destroy();
+    res.redirect('/');
+})
+
 //Making the page public.
 module.exports = router, passport;

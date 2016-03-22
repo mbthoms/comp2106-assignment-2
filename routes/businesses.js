@@ -88,6 +88,8 @@ router.post('/:id', LoggedIn, function(req, res, next) {
         _id: id,
         businessName: req.body.businessName,
         about: req.body.about,
+        phoneNumber: req.body.phoneNumber,
+        address: req.body.address
 
     });
 
@@ -125,7 +127,7 @@ router.get('/delete/:id', LoggedIn, function(req, res, next) {
 function LoggedIn(req, res, next) {
     //Making sure the user is authenticated.
     if (req.isAuthenticated()) {
-        return next;
+        return next();
     }
     else {
         res.redirect('/login/login');
