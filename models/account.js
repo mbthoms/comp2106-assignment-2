@@ -1,3 +1,6 @@
+/**
+ * Created by matthewthoms on 2016-03-17.
+ */
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
