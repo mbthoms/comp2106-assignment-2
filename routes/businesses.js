@@ -48,17 +48,17 @@ router.post('/create', LoggedIn, function(req, res, next) {
 
     //Creating a new entry into the database using the business model and mongoose module.
     Business.create( {
-            businessName: req.body.businessName,
-            about: req.body.about,
-            phoneNumber: req.body.phoneNumber,
-            address: req.body.address
+        businessName: req.body.businessName,
+        about: req.body.about,
+        phoneNumber: req.body.phoneNumber,
+        address: req.body.address
         }
     );
     //Redirecting to the businesses Page.
     res.redirect('/businesses');
 });
 
-//GET handler to  edit the information you selected and populate it into the from.
+//GET handler to edit the information you selected and populate it into the from.
 router.get('/:id', LoggedIn, function(req, res, next) {
     //Creating a variable to store the id of the data from the url.
     var id = req.params.id;
