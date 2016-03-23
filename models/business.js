@@ -27,6 +27,10 @@ var businessSchema = new mongoose.Schema({
     address: {
         type: String,
         default: ''
+    },
+    website: {
+        type: String,
+        default: ''
     }
 });
 

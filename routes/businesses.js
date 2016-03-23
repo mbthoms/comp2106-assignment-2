@@ -51,7 +51,8 @@ router.post('/create', LoggedIn, function(req, res, next) {
         businessName: req.body.businessName,
         about: req.body.about,
         phoneNumber: req.body.phoneNumber,
-        address: req.body.address
+        address: req.body.address,
+        website: req.body.website
         }
     );
     //Redirecting to the businesses Page.
@@ -89,7 +90,8 @@ router.post('/:id', LoggedIn, function(req, res, next) {
         businessName: req.body.businessName,
         about: req.body.about,
         phoneNumber: req.body.phoneNumber,
-        address: req.body.address
+        address: req.body.address,
+        website: req.body.website
 
     });
 

@@ -14,17 +14,21 @@
                 <h3 id="business-list-item-heading"><%= businesses[i].businessName %></h3></a>
 
             <div class="row">
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-3">
                     About: <br>
                     <%= businesses[i].about %>
                 </div>
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-3">
                     Phone Number: <br>
                     <%= businesses[i].phoneNumber %>
                 </div>
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-md-3">
                     About: <br>
                     <%= businesses[i].address %>
+                </div>
+                <div class="col-sm-12 col-md-3">
+                    Website: <br>
+                    <a href="http://<%= businesses[i].website %>"><%= businesses[i].website %></a>
                 </div>
             </div>
         </li>

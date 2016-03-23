@@ -5,6 +5,7 @@
 <main class="container first-container">
     <h1>Create a Business Entry</h1>
     <form method="post" action="create">
+        <p>All fields are required.</p>
         <fieldset class="form-group">
             <label for="businessName">Business Name:</label>
             <input name="businessName" id="businessName" class="form-control" required />
@@ -20,6 +21,14 @@
         <fieldset class="form-group">
             <label for="address">Business Address:</label>
             <input name="address" id="address" class="form-control" required />
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="website">Business Website:</label>
+
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">http://</span>
+                <input name="website" id="website" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
         </fieldset>
         <button class="btn btn-primary">Save</button>
     </form>

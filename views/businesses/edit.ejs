@@ -20,15 +20,16 @@
             <label for="address" class="col-sm-2">Address:</label>
             <input name="address" id="address" class="form-control" required value="<%= business.address %>" />
         </fieldset>
-
+        <fieldset class="form-group">
+            <label for="website" class="col-sm-2">Business Website:</label>
+            <input name="website" id="website" class="form-control" required value="<%= business.website %>" />
+        </fieldset>
         <div>
             <%= business.created %>
         </div>
         <button class="btn btn-primary">Save</button>
 
-        <a href="/businesses/delete/<%= business._id %>" title="Delete" class="confirm_delete">
-            <button class="btn btn-danger" type="button">Delete</button>
-        </a>
+        <a class="btn btn-danger" href="/businesses/delete/<%= business._id %>" title="Delete" id="confirm_delete" >Delete</a>
     </form>
 </main>
 
