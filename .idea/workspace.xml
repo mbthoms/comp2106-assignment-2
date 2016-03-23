@@ -67,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.1076555">
-              <caret line="6" column="88" selection-start-line="6" selection-start-column="88" selection-end-line="6" selection-end-column="88" />
+              <caret line="6" column="144" selection-start-line="6" selection-start-column="144" selection-end-line="6" selection-end-column="144" />
               <folding />
             </state>
           </provider>
@@ -902,7 +902,7 @@
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1076555">
-          <caret line="6" column="88" selection-start-line="6" selection-start-column="88" selection-end-line="6" selection-end-column="88" />
+          <caret line="6" column="144" selection-start-line="6" selection-start-column="144" selection-end-line="6" selection-end-column="144" />
           <folding />
         </state>
       </provider>
