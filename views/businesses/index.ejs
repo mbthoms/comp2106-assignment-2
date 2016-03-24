@@ -1,12 +1,12 @@
 <%- include ../partials/head.ejs %>
 <%- include ../partials/header.ejs %>
 
-<main class="container first-container">
+<main class="container first-container well">
     <h1>Business List</h1>
 
     <a class="btn btn-primary" href="/Businesses/create" title="Add a Business">Add a new Business</a>
     <hr>
-    <ul class="list-group">
+    <ul class="list-group business-list">
         <% for (var i = 0; i < businesses.length; i++) { %>
         <li class="list-group-item">
             <!-- link to /businesses/:id -->
@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-sm-12 col-md-3">
                     Phone Number: <br>
-                    <%= businesses[i].phoneNumber %>
+                    <a href="tel:<%= businesses[i].phoneNumber %>"><%= businesses[i].phoneNumber %></a>
                 </div>
                 <div class="col-sm-12 col-md-3">
                     About: <br>

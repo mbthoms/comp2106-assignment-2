@@ -1,6 +1,3 @@
-/**
- * Created by matthewthoms on 2016-03-17.
- */
 //The connection string being created.
 module.exports = {
     // Database is live on mLab.
