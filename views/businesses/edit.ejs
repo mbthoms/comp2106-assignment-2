@@ -21,8 +21,12 @@
             <input name="address" id="address" class="form-control" required value="<%= business.address %>" />
         </fieldset>
         <fieldset class="form-group">
-            <label for="website" class="col-sm-2">Business Website:</label>
-            <input name="website" id="website" class="form-control" required value="<%= business.website %>" />
+            <label for="website">Business Website:</label>
+
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">http://</span>
+                <input name="website" id="website" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="<%= business.website %>">
+            </div>
         </fieldset>
         <div>
             <%= business.created %>
